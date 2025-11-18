@@ -1,7 +1,6 @@
 import { sql } from "@vercel/postgres";
 
 export async function createTables() {
-  // Messages table
   await sql`
     CREATE TABLE IF NOT EXISTS messages (
       id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -25,6 +24,7 @@ export async function saveMessage(
     VALUES (${name}, ${email}, ${message});
   `;
 }
+
 export async function createVisitTable() {
   await sql`
     CREATE TABLE IF NOT EXISTS visits (
