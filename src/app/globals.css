@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.3rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Purple primary button */
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.45);
+}
+
+/* Outline button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--card-border);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+  transform: translateY(-3px) scale(1.03);
+}
+
 :root {
+  --background: #0a0a0a;
+  --foreground: #e2e8f0;
+  --background-rgb: 10, 10, 10;
+
+
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
+  --card-text: #cbd5e1;
+  --timeline-line: var(--card-border);
+  --timeline-glow: rgba(124, 58, 237, 0.25); /* purple glow */
+
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+}
+
+.light {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e293b;
+--background-rgb: 255, 255, 255;
+
+  --card-bg: #f8fafc;
+  --card-border: #d9e1ec;
+  --card-text: #475569;
+  --timeline-line: var(--card-border);
+  --timeline-glow: rgba(124, 58, 237, 0.18);
+
+  --muted: #64748b;
+  --accent: #0284c7;
+}
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--card-border);
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: all 0.22s ease;
+  font-size: 0.95rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.input::placeholder {
+  color: var(--muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.input:hover {
+  border-color: var(--accent);
 }
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes flow {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
